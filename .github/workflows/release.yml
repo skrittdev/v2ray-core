@@ -5,9 +5,7 @@ on:
     types: [prereleased]
   push:
     branches:
-      - master
-      - v*
-      - dev*
+      - v5
     paths:
       - "**/*.go"
       - "go.mod"
@@ -27,8 +25,8 @@ jobs:
     strategy:
       matrix:
         # Include amd64 on all platforms.
-        goos: [windows, freebsd, openbsd, linux, dragonfly, darwin]
-        goarch: [amd64, 386]
+        goos: [linux]
+        goarch: [amd64]
         exclude:
           # Exclude i386 on darwin and dragonfly.
           - goarch: 386
